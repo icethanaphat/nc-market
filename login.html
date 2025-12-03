@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เข้าสู่ระบบ - ตลาดนัดโรงเรียน</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-600">
+
+  <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-8">
+    <h2 class="text-2xl font-bold mb-2 text-center">เข้าสู่ระบบตลาดนัดโรงเรียน</h2>
+    <p class="text-center text-gray-500 mb-4 text-sm">
+      กรอกข้อมูลเพื่อเข้าสู่ระบบ
+    </p>
+
+    <!-- กล่อง error -->
+    <p id="login-error"
+       class="text-sm mb-4 hidden">
+    </p>
+
+    <form id="login-form" class="space-y-4">
+      <!-- ผู้ใช้ / รหัสนักเรียน -->
+      <div>
+        <label class="block font-semibold mb-1" for="login-username">
+          รหัสนักเรียน / ชื่อผู้ใช้ *
+        </label>
+        <input id="login-username" type="text"
+               class="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
+               placeholder="เช่น 12345678901 หรือชื่อผู้ใช้">
+      </div>
+
+      <!-- รหัสผ่าน -->
+      <div>
+        <label class="block font-semibold mb-1" for="login-password">
+          รหัสผ่าน *
+        </label>
+        <input id="login-password" type="password"
+               class="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
+               placeholder="รหัสผ่านที่ตั้งไว้ตอนสมัคร">
+      </div>
+
+      <button type="submit" id="login-btn"
+              class="w-full mt-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2.5 rounded-lg transition-all">
+        เข้าสู่ระบบ
+      </button>
+
+      <p class="text-center text-xs text-gray-500 mt-3">
+        ยังไม่มีบัญชี?
+        <a href="register.html" class="text-purple-600 hover:underline">สมัครสมาชิกใหม่</a>
+      </p>
+    </form>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>แดชบอร์ดผู้ดูแลระบบ - ตลาดนัดโรงเรียน</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom styles (ถ้ามี) -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <!-- Header เหมือนหน้า index -->
+    <header id="header" class="shadow-md">
+      <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="min-w-[200px]">
+            <h1 id="site-title" class="font-bold mb-1">
+              🏫 ตลาดนัดโรงเรียน
+            </h1>
+            <p
+              id="welcome-message"
+              class="opacity-90 text-sm"
+            >
+              แดชบอร์ดผู้ดูแลระบบ
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <span
+              id="user-display"
+              class="text-sm text-white/90"
+            ></span>
+
+            <a
+              href="index.html"
+              class="px-4 py-2 rounded-lg font-semibold border border-white/60 text-white/90 hover:bg-white/10 text-sm"
+            >
+              กลับหน้าหลัก
+            </a>
+
+            <button
+              id="logout-btn"
+              class="px-4 py-2 rounded-lg font-semibold border border-white/60 text-white/90 hover:bg-white/10 text-sm"
+            >
+              ออกจากระบบ
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+      <!-- ส่วนหัวโปรไฟล์แอดมิน -->
+      <section class="mb-6">
+        <div class="bg-white rounded-2xl shadow-sm p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <h2 class="text-xl font-bold mb-1">แดชบอร์ดผู้ดูแลระบบ</h2>
+            <p class="text-sm text-gray-500">
+              ดูภาพรวมการใช้งานเว็บไซต์ตลาดนัดโรงเรียนและจัดการระบบ
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <div
+              class="w-12 h-12 rounded-full bg-indigo-500 flex items-center justify-center text-white text-2xl"
+            >
+              🛠️
+            </div>
+            <div>
+              <p id="profile-name" class="font-semibold">-</p>
+              <p
+                id="profile-role"
+                class="text-xs text-indigo-600 font-medium"
+              >
+                ผู้ดูแลระบบ
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- สถิติโดยรวม -->
+      <section class="mb-8">
+        <h3 class="text-lg font-semibold mb-3">ภาพรวมสินค้าในระบบ</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white rounded-2xl shadow-sm p-5 border border-gray-100">
+            <p class="text-xs text-gray-500 mb-1">จำนวนสินค้าทั้งหมด</p>
+            <p
+              id="stats-total-products"
+              class="text-3xl font-extrabold text-indigo-600 mb-1"
+            >
+              0
+            </p>
+            <p class="text-xs text-gray-400">
+              สินค้าทั้งหมดที่ถูกโพสต์ในตลาดนัดโรงเรียน
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-sm p-5 border border-gray-100">
+            <p class="text-xs text-gray-500 mb-1">มีสินค้า (ยังขายอยู่)</p>
+            <p
+              id="stats-available-products"
+              class="text-3xl font-extrabold text-emerald-600 mb-1"
+            >
+              0
+            </p>
+            <p class="text-xs text-gray-400">
+              สินค้าที่มีสถานะ “มีสินค้า”
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-sm p-5 border border-gray-100">
+            <p class="text-xs text-gray-500 mb-1">ขายแล้ว</p>
+            <p
+              id="stats-sold-products"
+              class="text-3xl font-extrabold text-rose-600 mb-1"
+            >
+              0
+            </p>
+            <p class="text-xs text-gray-400">
+              สินค้าที่ถูกเปลี่ยนสถานะเป็น “ขายแล้ว”
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- สถิติตามหมวดหมู่ -->
+      <section class="mb-8">
+        <div class="bg-white rounded-2xl shadow-sm p-5 border border-gray-100">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold">สถิติตามหมวดหมู่</h3>
+          </div>
+          <div id="category-stats" class="space-y-2 text-sm">
+            <!-- เติมด้วย JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- สินค้าล่าสุด -->
+      <section class="mb-8">
+        <div class="bg-white rounded-2xl shadow-sm p-5 border border-gray-100">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold">รายการสินค้าล่าสุด</h3>
+            <span class="text-xs text-gray-400"
+              >แสดงสูงสุด 5 รายการล่าสุด</span
+            >
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-left text-xs text-gray-500 border-b">
+                  <th class="py-2 pr-2">ชื่อสินค้า</th>
+                  <th class="py-2 px-2">หมวดหมู่</th>
+                  <th class="py-2 px-2">ราคา</th>
+                  <th class="py-2 px-2">สถานะ</th>
+                  <th class="py-2 px-2">ผู้ขาย</th>
+                  <th class="py-2 pl-2">วันที่โพสต์</th>
+                </tr>
+              </thead>
+              <tbody id="recent-products">
+                <!-- เติมด้วย JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- พื้นที่สำรองไว้สำหรับ “รายงานโพสต์ไม่เหมาะสม” ในอนาคต -->
+      <section class="mb-10">
+        <div class="bg-white rounded-2xl shadow-sm p-5 border border-dashed border-amber-300">
+          <h3 class="text-lg font-semibold mb-2">
+            รายการโพสต์ที่ถูกรายงาน (ไว้ต่อฟีเจอร์ภายหลัง)
+          </h3>
+          <p class="text-sm text-gray-500 mb-3">
+            ตอนนี้ยังไม่มีระบบรายงานโพสต์จากหน้าเว็บไซต์ เมื่อเพิ่มปุ่ม
+            “🚩 รายงานโพสต์” แล้ว ข้อมูลจะถูกแสดงที่นี่
+          </p>
+          <div id="report-list" class="text-sm text-gray-400">
+            ยังไม่มีข้อมูลรายงาน
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Toast -->
+    <style>
+      .toast {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 0.75rem 1.25rem;
+        border-radius: 999px;
+        color: #fff;
+        font-size: 0.875rem;
+        font-weight: 500;
+        z-index: 9999;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        animation: slideIn 0.25s ease-out;
+      }
+      @keyframes slideIn {
+        from {
+          transform: translateX(120%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    </style>
+
+    <!-- Admin JS -->
+    <script src="admin.js"></script>
+  </body>
+</html>

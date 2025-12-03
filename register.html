@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สมัครสมาชิก - ตลาดนัดโรงเรียน</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-500 to-purple-600 flex justify-center py-8">
+
+  <!-- ตัวครอบให้ฟอร์มอยู่กลาง + มีระยะขอบซ้ายขวา -->
+  <div class="w-full max-w-lg mx-auto px-4">
+    <!-- กล่องฟอร์มสีขาว -->
+    <div class="bg-white rounded-2xl shadow-xl w-full p-8">
+      <h2 class="text-2xl font-bold mb-2 text-center">สมัครสมาชิกตลาดนัดโรงเรียน</h2>
+      <p class="text-center text-gray-500 mb-4 text-sm">
+        กรอกข้อมูลตามบัตรนักเรียนของคุณให้ครบถ้วน
+      </p>
+
+      <!-- กล่อง error -->
+      <p id="register-error" class="text-sm mb-4 hidden"></p>
+
+      <form id="register-form" class="space-y-4">
+        <!-- ชื่อจริง -->
+        <div>
+          <label class="block font-semibold mb-1" for="first-name">ชื่อจริง *</label>
+          <input id="first-name" type="text"
+                 class="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                 placeholder="เช่น อัครชัย">
+        </div>
+
+        <!-- นามสกุล -->
+        <div>
+          <label class="block font-semibold mb-1" for="last-name">นามสกุล *</label>
+          <input id="last-name" type="text"
+                 class="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                 placeholder="เช่น ปากเกล็ด">
+        </div>
+
+        <!-- รหัสบัตรนักเรียน -->
+        <div>
+          <label class="block font-semibold mb-1" for="student-id">
+            รหัสบัตรนักเรียน (11 หลัก) *
+          </label>
+          <input id="student-id" type="text" maxlength="11"
+                 class="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                 placeholder="เช่น 12345678901">
+          <p class="text-xs text-gray-500 mt-1">
+            ต้องเป็นตัวเลข 11 หลัก ห้ามขาดห้ามเกิน
+          </p>
+        </div>
+
+        <!-- รหัสผ่าน -->
+        <div>
+          <label class="block font-semibold mb-1" for="password">
+            รหัสผ่านสำหรับใช้งานระบบ *</label>
+          <input id="password" type="password"
+                 class="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                 placeholder="อย่างน้อย 6 ตัวอักษร">
+          <p class="text-xs text-gray-500 mt-1">
+            ใช้รหัสนี้ร่วมกับรหัสบัตรนักเรียนในการเข้าสู่ระบบ
+          </p>
+        </div>
+
+        <!-- ยืนยันรหัสผ่าน -->
+        <div>
+          <label class="block font-semibold mb-1" for="confirm-password">
+            ยืนยันรหัสผ่าน *</label>
+          <input id="confirm-password" type="password"
+                 class="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                 placeholder="กรอกรหัสผ่านซ้ำอีกครั้ง">
+        </div>
+
+        <!-- สาขาวิชา -->
+        <div>
+          <label class="block font-semibold mb-1" for="major">สาขาวิชา *</label>
+          <select id="major"
+                  class="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            <option value="">-- เลือกสาขา --</option>
+            <option value="คอมพิวเตอร์ธุรกิจ">คอมพิวเตอร์ธุรกิจ</option>
+            <option value="การบัญชี">การบัญชี</option>
+            <option value="การตลาด">การตลาด</option>
+            <option value="ไฟฟ้ากำลัง">ไฟฟ้ากำลัง</option>
+            <option value="อื่นๆ">อื่นๆ</option>
+          </select>
+        </div>
+
+        <!-- ระดับชั้น -->
+        <div>
+          <label class="block font-semibold mb-1" for="level">ระดับชั้น *</label>
+          <select id="level"
+                  class="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+            <option value="">-- เลือกระดับชั้น --</option>
+            <option value="ปวช.1">ปวช.1</option>
+            <option value="ปวช.2">ปวช.2</option>
+            <option value="ปวช.3">ปวช.3</option>
+            <option value="ปวส.1">ปวส.1</option>
+            <option value="ปวส.2">ปวส.2</option>
+          </select>
+        </div>
+
+        <!-- รูปบัตรนักเรียน -->
+        <div>
+          <label class="block font-semibold mb-1" for="card-image">
+            รูปถ่ายบัตรนักเรียน *</label>
+          <input id="card-image" type="file" accept="image/*"
+                 class="w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <p class="text-xs text-gray-500 mt-1">
+            อัปโหลดรูปบัตรนักเรียน (จะถูกเก็บเฉพาะในเครื่องนี้เพื่อใช้ในโครงงาน)
+          </p>
+          <div id="card-preview" class="mt-3 hidden">
+            <img id="card-preview-img" src="" alt="ตัวอย่างรูปบัตร"
+                 class="w-full max-h-48 object-contain rounded-lg border">
+          </div>
+        </div>
+
+        <!-- ปุ่มสมัคร -->
+        <button type="submit"
+                class="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 rounded-lg transition-all">
+          สมัครสมาชิก
+        </button>
+
+        <p class="text-center text-xs text-gray-500 mt-3">
+          มีบัญชีอยู่แล้ว?
+          <a href="login.html" class="text-indigo-600 hover:underline">กลับไปหน้าเข้าสู่ระบบ</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="register.js"></script>
+</body>
+</html>

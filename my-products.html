@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สินค้าของฉัน - ตลาดนัดโรงเรียน</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles (ใช้ไฟล์เดียวกับหน้า index) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+  <div id="app" class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header id="header" class="shadow-md">
+      <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="min-w-[200px]">
+            <h1 id="site-title" class="font-bold mb-1">🏫 ตลาดนัดโรงเรียน</h1>
+            <p id="welcome-message" class="opacity-90 text-sm">
+              จัดการสินค้าที่คุณโพสต์ในตลาดนัดโรงเรียน
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span id="user-display" class="text-sm text-white/90"></span>
+
+            <!-- กลับไปหน้าตลาดหลัก -->
+            <a href="index.html"
+               class="px-4 py-2 rounded-lg font-semibold border border-white/60 text-white/90 hover:bg-white/10 text-sm">
+              ← กลับหน้าตลาด
+            </a>
+
+            <!-- ออกจากระบบ -->
+            <button id="logout-btn"
+                    class="px-4 py-2 rounded-lg font-semibold border border-white/60 text-white/90 hover:bg-white/10 text-sm">
+              ออกจากระบบ
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl mx-auto px-4 py-6 w-full">
+      <h2 class="text-xl font-bold mb-4">สินค้าของฉัน</h2>
+
+      <!-- ข้อมูลโปรไฟล์แบบสั้น -->
+      <div id="profile-box"
+           class="mb-6 p-4 rounded-xl shadow-sm bg-white border border-gray-100 text-sm">
+        <p><span class="font-semibold">ชื่อผู้ใช้งาน:</span> <span id="profile-name">-</span></p>
+        <p><span class="font-semibold">สิทธิ์:</span> <span id="profile-role">-</span></p>
+      </div>
+
+      <!-- กล่องสินค้า -->
+      <div id="my-products-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <!-- ถ้าไม่มีสินค้า -->
+      <div id="my-empty-state" class="text-center py-16 hidden">
+        <div class="text-6xl mb-4">📦</div>
+        <h3 class="text-2xl font-bold mb-2">ยังไม่มีสินค้าที่คุณโพสต์</h3>
+        <p class="text-lg opacity-70">คุณสามารถกลับไปเพิ่มสินค้าที่หน้าตลาดนัดโรงเรียน</p>
+        <a href="index.html"
+           class="inline-block mt-4 px-5 py-2.5 rounded-lg bg-indigo-600 text-white font-semibold shadow">
+          ไปที่หน้าตลาดนัด
+        </a>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="my-products.js"></script>
+</body>
+</html>
